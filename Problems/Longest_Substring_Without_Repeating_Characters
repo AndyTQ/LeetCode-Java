@@ -1,0 +1,29 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        String longest = "";
+        int cur_longest = 0;
+        for (int i = 0; i < s.length(); i++){
+            for (int j = i + cur_longest + 1; j <= s.length(); j++){
+                String selected = s.substring(i, j);
+                if (!repeating(selected)){
+                    if (selected.length() > cur_longest){
+                        cur_longest = selected.length();
+                    }
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        return cur_longest;
+    }
+    public boolean repeating(String x){
+        for (int i = 0; i < x.length(); i++){
+            char c = x.charAt(i);
+            if (x.indexOf(c, i + 1) != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
