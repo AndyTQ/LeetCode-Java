@@ -1,6 +1,5 @@
 class Solution {
     public int myAtoi(String str) {
-        if (str == null || str.length() == 0) return 0;  
         str = str.trim();
         if (str.length() == 0) return 0;
         
